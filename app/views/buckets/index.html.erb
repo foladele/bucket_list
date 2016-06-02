@@ -1,2 +1,16 @@
-<h1>Buckets#index</h1>
-<p>Find me in app/views/buckets/index.html.erb</p>
+<h1>All Bucket Lists</h1>
+<hr/>
+
+<% if @buckets.any? %>
+<ul>
+	<%@buckets.each do |bucket| %>
+		<li>
+			<%= link_to bucket.title, bucket_path(bucket) %>
+		</li>
+	<%end%>
+</ul>
+<% else %>
+<h3>No Bucket list, please add one!</h3>
+<% end %>
+
+<%= link_to "Add Buckets", new_bucket_path %>

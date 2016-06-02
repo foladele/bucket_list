@@ -1,2 +1,15 @@
-<h1>Buckets#show</h1>
-<p>Find me in app/views/buckets/show.html.erb</p>
+<h1>Buckets Title: <%= @bucket.title %> </h1>
+<hr/>
+<%= image_tag @bucket.image.url(:medium) %>
+<h3>
+	<span>Description:</span>
+	<span><%= @bucket.description %> </span> <br/>
+
+	<span>Completed:</span>
+	<span><%= @bucket.completed %> </span> <br/>
+
+</h3>
+
+<%= link_to "Edit Bucket", edit_bucket_path(@bucket) %> |
+<%= link_to "Delete Bucket", bucket_path(@bucket), method: :delete, data: {confirm: 'Really Logout?'} %> |
+<%= link_to "Bucket", buckets_path %>
