@@ -1,5 +1,6 @@
 class BucketsController < ApplicationController
-	before_action :bucket, except: [:index, :new, :create]
+
+  before_action :bucket, except: [:index, :new, :create]
 
   def index
   	@buckets = current_user.buckets
@@ -33,6 +34,7 @@ class BucketsController < ApplicationController
   	else
   		flash[:notice] = "Failed to update bucket list."
   		render :edit
+  	end
   end
 
   def destroy
@@ -43,7 +45,8 @@ class BucketsController < ApplicationController
   private
 
   	def bucket_params
-  		params.require(:bucket).permit(:title, :description, :completed)
+  		params.require(:bucket).permit(:title, :description, :completed, :user_id, :image)
+
   	end
 
   	def bucket

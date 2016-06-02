@@ -2,6 +2,18 @@
 <p>Find me in app/views/home/index.html.erb</p>
 
 
+<% if @buckets.any? %>
+<ul>
+	<%@buckets.each do |bucket| %>
+		<li>
+			<%= link_to bucket.title, bucket_path(bucket) %>
+		</li>
+	<%end%>
+</ul>
+<% else %>
+<h3>No Bucket list, please add one!</h3>
+<% end %>
+
 <%= link_to 'Bucket List', buckets_path %>
 <br/>
 <%= link_to 'Edit Profile', edit_user_registration_path %>
