@@ -3,7 +3,7 @@
 
 <% if @buckets.any? %>
 <ul>
-	<%@buckets.each do |bucket| %>
+	<% @buckets.each do |bucket| %>
 		<li>
 			<%= link_to bucket.title, bucket_path(bucket) %>
 		</li>
@@ -13,4 +13,5 @@
 <h3>No Bucket list, please add one!</h3>
 <% end %>
 
-<%= link_to "Add Buckets", new_bucket_path %>
+<%= link_to "Add Buckets", new_bucket_path %> |
+<%= link_to "Buckets", root_path %>

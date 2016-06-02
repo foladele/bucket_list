@@ -9,7 +9,14 @@
 	<span><%= @bucket.completed %> </span> <br/>
 
 </h3>
+<% if @bucket.user_id == current_user.id %>
+	<%= link_to "Edit Bucket", edit_bucket_path(@bucket) %> |
+	<%= link_to "Delete Bucket", bucket_path(@bucket), method: :delete, data: {confirm: 'Really Logout?'} %> |
+	<%= link_to "#{@bucket.user.email}'s Bucket", buckets_path %>
+|
+<% end %> 
 
-<%= link_to "Edit Bucket", edit_bucket_path(@bucket) %> |
-<%= link_to "Delete Bucket", bucket_path(@bucket), method: :delete, data: {confirm: 'Really Logout?'} %> |
-<%= link_to "Bucket", buckets_path %>
+<%= link_to "Bucket", root_path %> |
+<%= link_to "List", bucket_lists_path(@bucket) %>
+
+

@@ -50,6 +50,6 @@ class BucketsController < ApplicationController
   	end
 
   	def bucket
-  		@bucket = current_user.buckets.find(params[:id])
+  		@bucket = Bucket.find(params[:id])
   	end
 end
