@@ -1,18 +1,25 @@
-<h1><%= @bucket.title%></h1>
-<hr/>
-<%= image_tag @list.image.url(:medium) %>
-<h3>
-	<span>Description:</span>
-	<span><%= @list.description %> </span> <br/>
+<div class="container-fluid">
 
-	<span>Completed:</span>
-	<span><%= @list.completed %> </span> <br/>
+	<h1><%= @bucket.title%></h1>
+	<hr/>
+	<div class="text-center">
+		<%= image_tag @list.image.url(:large) %>
+	</div>
+	<hr />
+	<h3>
 
-</h3>
+		<span><%= @list.description %> </span> <br/>
+	<hr />
+		<span>Completed:</span>
+		<span><%= @list.completed %> </span> <br/>
 
-<% if @bucket.user_id == current_user.id %>
-	<%= link_to "Edit list", edit_bucket_list_path(@bucket, @list),class:'btn btn-success' %> |
-	<%= link_to "Delete", bucket_list_path(@bucket, @list) ,method: :delete, data: {confirm: 'Really delete?'}  ,class:'btn btn-primary' %> |
-<% end %> 
-<%= link_to "Bucket", bucket_lists_path(@bucket),class:'btn btn-danger' %> |
-<%= link_to "Explore", root_path ,class:'btn btn-warning' %> 
+	</h3>
+	<hr/>
+
+	<% if @bucket.user_id == current_user.id %>
+		<%= link_to "Edit list", edit_bucket_list_path(@bucket, @list),class:'btn btn-success' %> |
+		<%= link_to "Delete", bucket_list_path(@bucket, @list) ,method: :delete, data: {confirm: 'Really delete?'}  ,class:'btn btn-primary' %> |
+	<% end %> 
+	<%= link_to "Lists", bucket_lists_path(@bucket),class:'btn btn-danger' %> |
+	<%= link_to "Explore", root_path ,class:'btn btn-warning' %> 
+</div>
