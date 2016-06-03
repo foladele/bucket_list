@@ -1,6 +1,8 @@
+<div class='center'>
+  <h2>Log in</h2>
+</div>
 <div class='row'>
 <div class='container group form-group container-fluid'>
-<h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field form-group">
@@ -21,7 +23,7 @@
   <% end -%>
 
   <div class="actions form-group">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class:'btn btn-info' %>
   </div>
 <% end %>
 
