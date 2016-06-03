@@ -7,14 +7,15 @@
 
 	<% if @buckets.any? %>
 	<div class="row">
-		<%@buckets.each do |bucket| %>
+		<% @buckets.each do |bucket| %>
 			 <div class="col-md-4">
-					<%= link_to (image_tag bucket.image.url(:medium)), bucket_path(bucket) %> 
-					<div class="row">
-					 <div class="col-md-12 text-uppercase text-bold">
+			 	 <div class="row">
+					 <div class="col-md-12 text-uppercase text-bold text-center">
 							<%= bucket.title %> 
 					  </div>
 					</div>
+					<%= link_to (image_tag bucket.image.url(:medium)), bucket_path(bucket) %> 
+
 			</div>
 		<%end%>
 	</div>
@@ -30,5 +31,4 @@
 	<hr/>
 
 	<%= link_to 'Edit Profile', edit_user_registration_path, class:'btn btn-warning' %> |
-	<%= link_to 'My Bucket List', buckets_path, class:'btn btn-primary' %>
 </div>
