@@ -4,12 +4,16 @@
 
 
 <% if @buckets.any? %>
+<div class="row">
 	<%@buckets.each do |bucket| %>
-			<%= link_to (image_tag bucket.image.url(:thumb)), bucket_path(bucket) %>
+		 <div class="col-md-4">
+				<%= link_to (image_tag bucket.image.url(:medium)), bucket_path(bucket) %> 
+		  </div>
 	<%end%>
+</div>
 </ul>
 <% else %>
-<h3>No Bucket list, please add one!</h3>
+<h3>No Bucket list has been added!</h3>
 <% end %>
 
 <hr/>
