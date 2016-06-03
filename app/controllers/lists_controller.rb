@@ -18,7 +18,7 @@ class ListsController < ApplicationController
       @list = @bucket.lists.new(list_params)
       if @list.save
           flash[:success] = "New item has been added to the list."
-          redirect_to bucket_list_path(@bucket)
+          redirect_to bucket_list_path(@bucket, @list)
       else
           render :new
       end
@@ -28,8 +28,11 @@ class ListsController < ApplicationController
   end
 
   def update
-      if @list = @bucket.lists.find(params[:id])
-          flash[:success] = "List has been updated!"
+    if @list.update(list_params)
+      flash[:success] = "List has been updated!"
+      redirect_to bucket_list_path(@bucket, @list)
+    else
+      render :edit
     end
   end
 
@@ -41,7 +44,7 @@ class ListsController < ApplicationController
 
   private
       def list_params
-          params.require(:list).permit(:title, :description, :completed, :bucket_id, :image)
+          params.require(:list).permit(:title, :description, :completed, :image)
       end
 
       def list
@@ -49,6 +52,7 @@ class ListsController < ApplicationController
       end
 
       def bucket
-          @bucket = current_user.buckets.find(params[:bucket_id])
+          # @bucket = current_user.buckets.find(params[:bucket_id])
+           @bucket = Bucket.find(params[:bucket_id])
       end
 end

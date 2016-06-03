@@ -1,2 +1,18 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<h1><%= @bucket.title%></h1>
+<hr/>
+<%= image_tag @list.image.url(:medium) %>
+<h3>
+	<span>Description:</span>
+	<span><%= @list.description %> </span> <br/>
+
+	<span>Completed:</span>
+	<span><%= @list.completed %> </span> <br/>
+
+</h3>
+
+<% if @bucket.user_id == current_user.id %>
+	<%= link_to "Edit list", edit_bucket_list_path(@bucket, @list),class:'btn btn-success' %> |
+	<%= link_to "Delete", bucket_list_path(@bucket, @list) ,method: :delete, data: {confirm: 'Really delete?'}  ,class:'btn btn-primary' %> |
+<% end %> 
+<%= link_to "Bucket", bucket_lists_path(@bucket),class:'btn btn-danger' %> |
+<%= link_to "Explore", root_path ,class:'btn btn-warning' %> 

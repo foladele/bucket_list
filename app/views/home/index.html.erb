@@ -2,25 +2,17 @@
 
 <hr />
 
-<%= form_tag root_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :title => nil %>
-  </p>
-<% end %>
 
 <% if @buckets.any? %>
 	<%@buckets.each do |bucket| %>
-			<%= link_to (image_tag bucket.image.url(:medium)), bucket_path(bucket) %>
+			<%= link_to (image_tag bucket.image.url(:thumb)), bucket_path(bucket) %>
 	<%end%>
 </ul>
 <% else %>
 <h3>No Bucket list, please add one!</h3>
 <% end %>
 
-
-<br/>
+<hr/>
 
 <%= link_to 'Edit Profile', edit_user_registration_path, class:'btn btn-warning' %> |
-<%= link_to 'My Bucket List', buckets_path, class:'btn btn-primary' %> |
-<%= link_to 'Logout', destroy_user_session_path, method: :delete, data: {confirm: 'Really Logout?'}, class:'btn btn-danger' %>
+<%= link_to 'My Bucket List', buckets_path, class:'btn btn-primary' %>
