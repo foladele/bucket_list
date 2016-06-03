@@ -21,6 +21,6 @@
 
 <br/>
 
-<%= link_to 'Edit Profile', edit_user_registration_path %> |
-<%= link_to 'My Bucket List', buckets_path %> |
-<%= link_to 'Logout', destroy_user_session_path, method: :delete, data: {confirm: 'Really Logout?'} %>
+<%= link_to 'Edit Profile', edit_user_registration_path, class:'btn btn-warning' %> |
+<%= link_to 'My Bucket List', buckets_path, class:'btn btn-primary' %> |
+<%= link_to 'Logout', destroy_user_session_path, method: :delete, data: {confirm: 'Really Logout?'}, class:'btn btn-danger' %>
